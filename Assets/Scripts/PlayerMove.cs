@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
@@ -47,5 +48,10 @@ public class PlayerMove : MonoBehaviour
         Vector3 movimiento = transform.right*movX + transform.forward*movZ;
         controller.Move(movimiento);
 
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(grndChck.position, radius);
+        Gizmos.color = Color.yellow;
     }
 }

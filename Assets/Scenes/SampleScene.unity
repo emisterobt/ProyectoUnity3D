@@ -133,9 +133,9 @@ GameObject:
   - component: {fileID: 1629790}
   - component: {fileID: 1629789}
   - component: {fileID: 1629788}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2007,9 +2007,9 @@ GameObject:
   - component: {fileID: 76694391}
   - component: {fileID: 76694390}
   - component: {fileID: 76694389}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2689,9 +2689,9 @@ GameObject:
   - component: {fileID: 261200324}
   - component: {fileID: 261200323}
   - component: {fileID: 261200322}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Stairs (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3889,9 +3889,9 @@ GameObject:
   - component: {fileID: 275686253}
   - component: {fileID: 275686252}
   - component: {fileID: 275686251}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Stairs
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6659,9 +6659,9 @@ GameObject:
   - component: {fileID: 309209469}
   - component: {fileID: 309209468}
   - component: {fileID: 309209467}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7064,7 +7064,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 119
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -7163,9 +7163,9 @@ GameObject:
   - component: {fileID: 374084010}
   - component: {fileID: 374084009}
   - component: {fileID: 374084008}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (5)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10448,9 +10448,9 @@ GameObject:
   - component: {fileID: 418654948}
   - component: {fileID: 418654947}
   - component: {fileID: 418654946}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (4)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10800,9 +10800,9 @@ GameObject:
   - component: {fileID: 510710884}
   - component: {fileID: 510710883}
   - component: {fileID: 510710882}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (26)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18343,9 +18343,9 @@ GameObject:
   - component: {fileID: 1349780866}
   - component: {fileID: 1349780865}
   - component: {fileID: 1349780864}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (7)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20826,7 +20826,7 @@ Transform:
   m_GameObject: {fileID: 1628385700}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.03, z: 0}
+  m_LocalPosition: {x: 0, y: -0.504, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20868,7 +20868,7 @@ MonoBehaviour:
   radius: 0.4
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 65
 --- !u!143 &1686266954
 CharacterController:
   m_ObjectHideFlags: 0
@@ -27008,9 +27008,9 @@ GameObject:
   - component: {fileID: 1951838718}
   - component: {fileID: 1951838717}
   - component: {fileID: 1951838716}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (6)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27676,9 +27676,9 @@ GameObject:
   - component: {fileID: 2115614776}
   - component: {fileID: 2115614775}
   - component: {fileID: 2115614774}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (28)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
