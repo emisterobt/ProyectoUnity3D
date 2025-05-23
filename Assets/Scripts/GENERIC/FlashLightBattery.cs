@@ -13,7 +13,7 @@ public class FlashLightBattery : MonoBehaviour
     [SerializeField]
     private float time;
     [SerializeField]
-    private int batteryLevel;
+    private float batteryLevel;
     [SerializeField]
     private float lightIntensity;
     void Start()
@@ -28,9 +28,13 @@ public class FlashLightBattery : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (batteryLevel > 3)
+        {
+            batteryLevel = 3;
+        }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            RechargeBattery();
+            AddEnergy(3);
         }
 
         if(batteryLevel == 0)
@@ -72,11 +76,11 @@ public class FlashLightBattery : MonoBehaviour
 
     }
 
-    public void RechargeBattery()
+    public void AddEnergy(float chargeAmount)
     {
         if (batteryLevel < 3)
         {
-            batteryLevel = 3;
+            batteryLevel += chargeAmount;
             time = 10;
             timer = time;
             onOff.isOn = true;
