@@ -16,6 +16,10 @@ public class FlashLightBattery : MonoBehaviour
     private float batteryLevel;
     [SerializeField]
     private float lightIntensity;
+
+    [SerializeField]
+    private float luzIntensidad;
+
     void Start()
     {
         flashLight = GetComponent<Light>();
@@ -59,13 +63,13 @@ public class FlashLightBattery : MonoBehaviour
                 lightIntensity = 0;
                 break;
             case 1:
-                lightIntensity = 20;
+                lightIntensity = (luzIntensidad * 0.25f);
                 break;
             case 2:
-                lightIntensity = 60;
+                lightIntensity = (luzIntensidad * 0.5f);
                 break;
             case 3:
-                lightIntensity = 100;
+                lightIntensity = luzIntensidad;
                 break;
             default:
                 Debug.Log("La variable no debe estar en este numero");
