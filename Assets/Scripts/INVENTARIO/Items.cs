@@ -21,7 +21,7 @@ public abstract class Items : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Inventario.Instance.PickUpItem(this);
+                Inventario2.Instance.CollectItems(this);
             }
         }
 
@@ -29,6 +29,6 @@ public abstract class Items : MonoBehaviour
     }
     public abstract void Use();
 
-    public abstract GameObject CreatePhysicalItem(Vector3 position);
+
 
 }

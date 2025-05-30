@@ -10,18 +10,4 @@ public class KeyItem : Items
 
     }
 
-    public override GameObject CreatePhysicalItem(Vector3 position)
-    {
-        if (physicalRepresentation != null)
-        {
-            GameObject physicalItem = Instantiate(physicalRepresentation, position, Quaternion.identity);
-
-            physicalItem.GetComponent<PhyssicalInventoryu>().Setup(this);
-            return physicalItem;
-        }
-        return null;
-    }
-
-
-
 }
