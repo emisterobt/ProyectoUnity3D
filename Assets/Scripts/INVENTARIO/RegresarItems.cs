@@ -48,5 +48,6 @@ public class RegresarItems : MonoBehaviour
             Destroy(clone.GetComponent<Rigidbody>());
             Destroy(other.gameObject);
         }
+        CamaraInventario.Instance.CambiarCamara();
     }
 }

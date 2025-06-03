@@ -25,6 +25,7 @@ public class FlashLightBattery : MonoBehaviour
         flashLight = GetComponent<Light>();
         fLight = transform.parent;
         onOff = fLight.GetComponent<FlashLightToggle>();
+        GameManager.Instance.fullBattery = batteryLevel;
 
         timer = time;
     }
@@ -32,16 +33,21 @@ public class FlashLightBattery : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (batteryLevel > 3)
+        batteryLevel = GameManager.Instance.fullBattery;
+
+        if (GameManager.Instance.fullBattery > 3)
         {
-            batteryLevel = 3;
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            AddEnergy(3);
+            GameManager.Instance.fullBattery = 3;
         }
 
-        if(batteryLevel == 0)
+        if (GameManager.Instance.resetTime)
+        {
+            time = 10;
+            timer = 10;
+            GameManager.Instance.resetTime = false;
+        }
+
+        if(GameManager.Instance.fullBattery == 0)
         {
             onOff.isOn = false;
         }
@@ -53,11 +59,11 @@ public class FlashLightBattery : MonoBehaviour
 
         if (timer <= 0)
         {
-            batteryLevel -= 1;
+            GameManager.Instance.fullBattery -= 1;
             timer = time += 5;
         }
 
-        switch (batteryLevel)
+        switch (GameManager.Instance.fullBattery)
         {
             case 0:
                 lightIntensity = 0;
@@ -80,14 +86,5 @@ public class FlashLightBattery : MonoBehaviour
 
     }
 
-    public void AddEnergy(float chargeAmount)
-    {
-        if (batteryLevel < 3)
-        {
-            batteryLevel += chargeAmount;
-            time = 10;
-            timer = time;
-            onOff.isOn = true;
-        }
-    }
+
 }

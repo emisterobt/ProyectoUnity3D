@@ -6,11 +6,7 @@ public class BatteryItem : Items
 
     public override void Use()
     {
-        FlashLightBattery flashlight = FindAnyObjectByType<FlashLightBattery>();
-        if (flashlight != null)
-        {
-            flashlight.AddEnergy(chargeAmount);
-        }
+        GameManager.Instance.AddEnergy(chargeAmount);
     }
 
 
