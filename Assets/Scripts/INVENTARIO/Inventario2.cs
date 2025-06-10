@@ -22,7 +22,7 @@ public class Inventario2 : MonoBehaviour
     }
     public void CollectItems(Items item)
     {
-        Items clone = Instantiate(item, inventorySpawn);
+        Items clone = Instantiate(item, inventorySpawn.position,inventorySpawn.rotation);
         inventarioPruebas.Add(clone);
         clone.gameObject.AddComponent<PhyssicalInventoryu>();
         clone.gameObject.AddComponent<Rigidbody>();

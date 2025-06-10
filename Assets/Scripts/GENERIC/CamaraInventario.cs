@@ -15,7 +15,7 @@ public class CamaraInventario : MonoBehaviour
     private void Start()
     {
         currentCamera = cameras[0];
-        cameras[index].transform.parent.gameObject.SetActive(true);
+        cameras[index].gameObject.SetActive(true);
     }
     private void Update()
     {
@@ -30,7 +30,7 @@ public class CamaraInventario : MonoBehaviour
         index = index < cameras.Count - 1 ? index + 1 : 0;
         for (int i = 0; i < cameras.Count; i++)
         {
-            cameras[i].transform.parent.gameObject.SetActive(i == index);
+            cameras[i].gameObject.SetActive(i == index);
         }
 
         currentCamera = cameras[index];
