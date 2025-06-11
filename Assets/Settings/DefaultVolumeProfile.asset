@@ -508,10 +508,10 @@ MonoBehaviour:
     m_Value: 0.9
   intensity:
     m_OverrideState: 1
-    m_Value: 2.46
+    m_Value: 0
   scatter:
     m_OverrideState: 1
-    m_Value: 0.078
+    m_Value: 0
   clamp:
     m_OverrideState: 1
     m_Value: 65472
@@ -804,7 +804,7 @@ MonoBehaviour:
     m_Value: 11
   focalLength:
     m_OverrideState: 1
-    m_Value: 74
+    m_Value: 35
   bladeCount:
     m_OverrideState: 1
     m_Value: 5
@@ -927,7 +927,7 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.293
+    m_Value: 0.352
   smoothness:
     m_OverrideState: 1
     m_Value: 0.2
