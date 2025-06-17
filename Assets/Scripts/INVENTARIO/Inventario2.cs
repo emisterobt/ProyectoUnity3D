@@ -26,6 +26,9 @@ public class Inventario2 : MonoBehaviour
         inventarioPruebas.Add(clone);
         clone.gameObject.AddComponent<PhyssicalInventoryu>();
         clone.gameObject.AddComponent<Rigidbody>();
+        Rigidbody rb = clone.GetComponent<Rigidbody>();
+        rb.constraints = RigidbodyConstraints.FreezePositionZ;
+        clone.transform.localScale = new(0.5f, 0.5f, 0.5f);
         Destroy(item.gameObject);
     }
 

@@ -44,6 +44,7 @@ public class RegresarItems : MonoBehaviour
             Items obj = other.gameObject.GetComponent<Items>();
             Inventario2.Instance.RemoveItem(obj);
             GameObject clone = Instantiate(other.gameObject, spawnPosition, Quaternion.identity);
+            clone.transform.localScale = new Vector3(0.24f, 0.24f, 0.24f);
             Destroy(clone.GetComponent<PhyssicalInventoryu>());
             Destroy(clone.GetComponent<Rigidbody>());
             Destroy(other.gameObject);

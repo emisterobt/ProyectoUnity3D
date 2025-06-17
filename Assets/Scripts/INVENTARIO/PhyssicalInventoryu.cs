@@ -27,7 +27,10 @@ public class PhyssicalInventoryu : MonoBehaviour
     }
     private void OnMouseDrag()
     {
-        transform.position = cam.ScreenToWorldPoint(Input.mousePosition - mousePosition);
+        if (cam != null)
+        {
+            transform.position = cam.ScreenToWorldPoint(Input.mousePosition - mousePosition);
+        }
     }
 
 

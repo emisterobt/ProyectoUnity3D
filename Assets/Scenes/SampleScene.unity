@@ -2590,6 +2590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e93c5fbf153759d4e98bb50634a309a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camRenderTexture: {fileID: 864302768}
 --- !u!1 &28013938
 GameObject:
   m_ObjectHideFlags: 0
@@ -114908,7 +114909,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: 0be0d80b6e6f7ce42a22ea6e19c1446f, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: ebee580133f857549a6b546432a8b115, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -139010,14 +139011,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: 0be0d80b6e6f7ce42a22ea6e19c1446f, type: 2}
+  m_Texture: {fileID: 8400000, guid: ebee580133f857549a6b546432a8b115, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -188696,7 +188697,7 @@ Transform:
   m_GameObject: {fileID: 1628385700}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.909, z: 0}
+  m_LocalPosition: {x: 0, y: -0.854, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -190460,19 +190461,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actualMovSpeed: 0
-  sprintMovSpeed: 5
-  crouchMovSpeed: 1
+  sprintMovSpeed: 6
+  crouchMovSpeed: 0.5
   walkMovSpeed: 3
   gravity: -11
+  isGrounded: 0
   grndChck: {fileID: 1628385701}
   radius: 0.01
   whatIsGround:
     serializedVersion: 2
     m_Bits: 65
   isCrouching: 0
-  crouchPlayerHeight: 0.6
+  crouchPlayerHeight: 0.4
   basePlayerHeight: 0
   isSprinting: 0
+  camBase: 0.499
+  camCrouch: -0.2
+  cameraPlayer: {fileID: 330585545}
+  charConCenterBase: 0
+  charConCenterCrouch: -0.66
 --- !u!143 &1686266954
 CharacterController:
   m_ObjectHideFlags: 0
@@ -285811,12 +285818,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7699227504857389204, guid: c8069ac0501a05449af284efe17e12a7, type: 3}
     - target: {fileID: 5030591627648801581, guid: 48a30e9cf6f40bf4b874c19739ab45f0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 5030591627648801581, guid: 48a30e9cf6f40bf4b874c19739ab45f0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 5030591627648801581, guid: 48a30e9cf6f40bf4b874c19739ab45f0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 5030591627648801581, guid: 48a30e9cf6f40bf4b874c19739ab45f0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.65
       objectReference: {fileID: 0}
     - target: {fileID: 5030591627648801581, guid: 48a30e9cf6f40bf4b874c19739ab45f0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.76
+      value: -0.441
       objectReference: {fileID: 0}
     - target: {fileID: 5030591627648801581, guid: 48a30e9cf6f40bf4b874c19739ab45f0, type: 3}
       propertyPath: m_LocalPosition.z

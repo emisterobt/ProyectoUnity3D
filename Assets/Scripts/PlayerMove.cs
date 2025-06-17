@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
@@ -22,7 +21,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     private float gravity = -9.81f;
 
-    private bool isGrounded;
+    public bool isGrounded;
 
     [SerializeField]
     private Transform grndChck;
@@ -37,6 +36,14 @@ public class PlayerMove : MonoBehaviour
     public float basePlayerHeight;
 
     public bool isSprinting;
+
+    public float camBase;
+    public float camCrouch;
+    public Camera cameraPlayer;
+
+    public float charConCenterBase;
+    public float charConCenterCrouch;
+
     void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -95,12 +102,16 @@ public class PlayerMove : MonoBehaviour
         if (isCrouching)
         {
             controller.height = crouchPlayerHeight;
+            isSprinting = false;
+            controller.center = new Vector3(0, charConCenterCrouch, 0);
+            cameraPlayer.transform.localPosition = new Vector3(0, camCrouch, 0);
 
-            
         }
         else
         {
             controller.height = basePlayerHeight;
+            controller.center = new Vector3(0, charConCenterBase, 0);
+            cameraPlayer.transform.localPosition = new Vector3(0, camBase, 0);
 
         }
 
@@ -108,7 +119,10 @@ public class PlayerMove : MonoBehaviour
 
     private void Sprint()
     {
-        isSprinting = !isSprinting;
+        if (!isCrouching)
+        {
+            isSprinting = !isSprinting;
+        }
     }
 
     private void OnDrawGizmos()
