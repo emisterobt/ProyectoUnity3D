@@ -847,7 +847,7 @@ GameObject:
   - component: {fileID: 2594155221035511917}
   - component: {fileID: 3687431053458344479}
   - component: {fileID: 4419271707850272619}
-  - component: {fileID: 8634844561734484231}
+  - component: {fileID: 2929056334455316006}
   m_Layer: 0
   m_Name: Pantalla (1)
   m_TagString: Untagged
@@ -945,42 +945,30 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!328 &8634844561734484231
-VideoPlayer:
+--- !u!114 &2929056334455316006
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3848179894146765771}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 89a2dc74e0f4a804496ea11e3a02179d, type: 3}
-  m_TargetCameraAlpha: 1
-  m_TargetCamera3DLayout: 0
-  m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 0}
-  m_TimeReference: 0
-  m_TargetMaterialRenderer: {fileID: 0}
-  m_TargetMaterialProperty: <noninit>
-  m_RenderMode: 3
-  m_AspectRatio: 2
-  m_DataSource: 0
-  m_TimeUpdateMode: 2
-  m_PlaybackSpeed: 1
-  m_AudioOutputMode: 2
-  m_TargetAudioSources:
-  - {fileID: 0}
-  m_DirectAudioVolumes:
-  - 1
-  m_Url: 
-  m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 00
-  m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
-  m_SkipOnDrop: 1
-  m_Looping: 1
-  m_WaitForFirstFrame: 1
-  m_FrameReadyEventEnabled: 0
-  m_VideoShaders: []
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c383252a3f3dd8a4eb032418ad0b2f14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: 2800000, guid: ebc8cc741953636469416263d50eda9b, type: 3}
+  - {fileID: 2800000, guid: 6d500a17e82a8c04a80c5232af1a32a6, type: 3}
+  - {fileID: 2800000, guid: 41182140fdf1490429cf52b054a21962, type: 3}
+  - {fileID: 2800000, guid: 99a94919ab5685347824af3788d987ce, type: 3}
+  - {fileID: 2800000, guid: 3b36f1aba8c66b04b83bae8123ac2bd4, type: 3}
+  - {fileID: 2800000, guid: db6445006c7ad104fa0023414e47210c, type: 3}
+  - {fileID: 2800000, guid: 6d8cea01cd4489d4e95b7e331b813042, type: 3}
+  - {fileID: 2800000, guid: dcc2c4dba7c922d4c95cc0712c3b4677, type: 3}
+  - {fileID: 2800000, guid: f286139ed9904534a9342f251416d69b, type: 3}
+  - {fileID: 2800000, guid: 298b5dfd8f6f89b44a8222266f109751, type: 3}
+  frameRate: 15
 --- !u!1 &4142681218108148821
 GameObject:
   m_ObjectHideFlags: 0
