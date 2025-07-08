@@ -12,7 +12,8 @@ public class RandomizarMonitor : MonoBehaviour
 
     void Start()
     {
-        toggleInterval = 5f;
+        toggleInterval = 1f;
+        StartCoroutine(InicioMonitores());
         StartCoroutine(ToggleObjects());
     }
 
@@ -34,5 +35,11 @@ public class RandomizarMonitor : MonoBehaviour
     void OnDisable()
     {
         StopAllCoroutines();
+    }
+
+    IEnumerator InicioMonitores()
+    {
+        yield return new WaitForSeconds(1f);
+        toggleInterval = 30f;
     }
 }
