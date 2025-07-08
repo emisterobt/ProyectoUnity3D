@@ -2705,13 +2705,39 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: c0642520f2b60c24aab41da45b56a81f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4747428241622991283}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c0642520f2b60c24aab41da45b56a81f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4802690707301172087}
   m_SourcePrefab: {fileID: 100100000, guid: c0642520f2b60c24aab41da45b56a81f, type: 3}
 --- !u!4 &2616454844503830734 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c0642520f2b60c24aab41da45b56a81f, type: 3}
   m_PrefabInstance: {fileID: 2577530876296255269}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3387924616347413108 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c0642520f2b60c24aab41da45b56a81f, type: 3}
+  m_PrefabInstance: {fileID: 2577530876296255269}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4802690707301172087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3387924616347413108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d7d96616b17f844ba86e3d4c7be9a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleInterval: 10
+  activationProbability: 0.2
+  screen: {fileID: 4420405058968462213}
+  screenLight: {fileID: 1251497977697499728}
+  onIntensity: 0.1
+  offIntensity: 0
 --- !u!1001 &2781190711623558558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2898,6 +2924,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e81f1d6da01f9784fba15026312f7f45, type: 3}
+--- !u!1 &4578444248456192707 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1648091021689007301, guid: e81f1d6da01f9784fba15026312f7f45, type: 3}
+  m_PrefabInstance: {fileID: 2978802142575447558}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8869287512855339331 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5926982044942675781, guid: e81f1d6da01f9784fba15026312f7f45, type: 3}
@@ -3182,6 +3213,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e81f1d6da01f9784fba15026312f7f45, type: 3}
+--- !u!1 &4420405058968462213 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1648091021689007301, guid: e81f1d6da01f9784fba15026312f7f45, type: 3}
+  m_PrefabInstance: {fileID: 3136577879105539904}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8775125550290313221 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5926982044942675781, guid: e81f1d6da01f9784fba15026312f7f45, type: 3}
@@ -3252,8 +3288,34 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: c0642520f2b60c24aab41da45b56a81f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 206633472275788092}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c0642520f2b60c24aab41da45b56a81f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2201449504436950289}
   m_SourcePrefab: {fileID: 100100000, guid: c0642520f2b60c24aab41da45b56a81f, type: 3}
+--- !u!1 &2475840597857588464 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c0642520f2b60c24aab41da45b56a81f, type: 3}
+  m_PrefabInstance: {fileID: 3358166029410232737}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2201449504436950289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2475840597857588464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d7d96616b17f844ba86e3d4c7be9a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleInterval: 10
+  activationProbability: 0.2
+  screen: {fileID: 4578444248456192707}
+  screenLight: {fileID: 6870688167630216862}
+  onIntensity: 0.1
+  offIntensity: 0
 --- !u!4 &2958903761847357002 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c0642520f2b60c24aab41da45b56a81f, type: 3}

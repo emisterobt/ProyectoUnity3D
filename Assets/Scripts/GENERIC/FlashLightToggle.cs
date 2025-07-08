@@ -5,10 +5,16 @@ public class FlashLightToggle : MonoBehaviour
     private Light flashLight;
     [SerializeField]
     public bool isOn;
+
+    public bool isColliding;
+
+    private BoxCollider lampCollider;
+
     
     void Start()
     {
         flashLight = transform.GetChild(0).GetComponent<Light>();
+        lampCollider = transform.GetComponent<BoxCollider>();
     }
 
     void Update()
@@ -28,4 +34,24 @@ public class FlashLightToggle : MonoBehaviour
                 flashLight.enabled = false;
             }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other != null && other.CompareTag("Walls") && isOn)
+        {
+            isOn = false;
+            Debug.Log("Collision with " + other.gameObject.name);
+            isColliding = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other != null && other.CompareTag("Walls") && isColliding)
+        {
+            isColliding = false;
+            isOn = true;
+        }
+    }
+
 }

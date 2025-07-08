@@ -36,6 +36,7 @@ public class PlayerMove : MonoBehaviour
     public float basePlayerHeight;
 
     public bool isSprinting;
+    public bool canRun;
 
     public float camBase;
     public float camCrouch;
@@ -53,6 +54,7 @@ public class PlayerMove : MonoBehaviour
     private void Start()
     {
         basePlayerHeight = controller.height;
+        canRun = true;
     }
 
     void Update()
@@ -119,9 +121,13 @@ public class PlayerMove : MonoBehaviour
 
     private void Sprint()
     {
-        if (!isCrouching)
+        if (!isCrouching && canRun)
         {
             isSprinting = !isSprinting;
+        }
+        else if (!canRun)
+        {
+            isSprinting = false;
         }
     }
 

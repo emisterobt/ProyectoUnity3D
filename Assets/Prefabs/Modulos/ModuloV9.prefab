@@ -2499,6 +2499,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e81f1d6da01f9784fba15026312f7f45, type: 3}
+--- !u!1 &1249074096104471841 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1648091021689007301, guid: e81f1d6da01f9784fba15026312f7f45, type: 3}
+  m_PrefabInstance: {fileID: 543431735014740452}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6181883785808150177 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5926982044942675781, guid: e81f1d6da01f9784fba15026312f7f45, type: 3}
@@ -3063,8 +3068,34 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: c0642520f2b60c24aab41da45b56a81f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1372322088124675762}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c0642520f2b60c24aab41da45b56a81f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6588298475488658493}
   m_SourcePrefab: {fileID: 100100000, guid: c0642520f2b60c24aab41da45b56a81f, type: 3}
+--- !u!1 &2631537221055492437 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c0642520f2b60c24aab41da45b56a81f, type: 3}
+  m_PrefabInstance: {fileID: 2901568275189468164}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6588298475488658493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2631537221055492437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d7d96616b17f844ba86e3d4c7be9a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleInterval: 10
+  activationProbability: 0.2
+  screen: {fileID: 5716064426694820156}
+  screenLight: {fileID: 3490052914741126593}
+  onIntensity: 0.1
+  offIntensity: 0
 --- !u!4 &3444912335377624047 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c0642520f2b60c24aab41da45b56a81f, type: 3}
@@ -3262,6 +3293,11 @@ PrefabInstance:
 --- !u!4 &850167158360097468 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5926982044942675781, guid: e81f1d6da01f9784fba15026312f7f45, type: 3}
+  m_PrefabInstance: {fileID: 6452734962996932089}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5716064426694820156 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1648091021689007301, guid: e81f1d6da01f9784fba15026312f7f45, type: 3}
   m_PrefabInstance: {fileID: 6452734962996932089}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6757273369154544854
@@ -3685,10 +3721,36 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: c0642520f2b60c24aab41da45b56a81f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8818311027375893462}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c0642520f2b60c24aab41da45b56a81f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7024422283332735139}
   m_SourcePrefab: {fileID: 100100000, guid: c0642520f2b60c24aab41da45b56a81f, type: 3}
 --- !u!4 &8201058065991407875 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c0642520f2b60c24aab41da45b56a81f, type: 3}
   m_PrefabInstance: {fileID: 8528335146078207720}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8834886475707663289 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c0642520f2b60c24aab41da45b56a81f, type: 3}
+  m_PrefabInstance: {fileID: 8528335146078207720}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7024422283332735139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8834886475707663289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d7d96616b17f844ba86e3d4c7be9a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleInterval: 10
+  activationProbability: 0.2
+  screen: {fileID: 1249074096104471841}
+  screenLight: {fileID: 203903324817852778}
+  onIntensity: 0.1
+  offIntensity: 0
