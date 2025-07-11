@@ -10,6 +10,8 @@ public class FlashLightToggle : MonoBehaviour
 
     private BoxCollider lampCollider;
 
+    public GameObject luzApoyo;
+
     
     void Start()
     {
@@ -27,12 +29,14 @@ public class FlashLightToggle : MonoBehaviour
             if (isOn)
             {
                 flashLight.enabled = true;
+                luzApoyo.SetActive(true);
             }
 
             if (!isOn)
             {
                 flashLight.enabled = false;
-            }
+                luzApoyo.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
