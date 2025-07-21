@@ -6,6 +6,8 @@ public class DoorController : MonoBehaviour
     private Animator doorAnim;
     public bool isOpen = false;
 
+    private bool isLooking;
+
     [SerializeField]
     private bool requiresKey;
 
@@ -16,11 +18,13 @@ public class DoorController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && RayoDetect.Instance.lookingTo == this.gameObject && !isOpen)
+        isLooking = RayoDetect.Instance.lookingTo == this.gameObject;
+
+        if (Input.GetKeyDown(KeyCode.E) && isLooking && !isOpen)
         {
             TryOpen();
         }
-        else if (Input.GetKeyDown(KeyCode.E) && RayoDetect.Instance.lookingTo == this.gameObject && isOpen)
+        else if (Input.GetKeyDown(KeyCode.E) && isLooking && isOpen)
         {
             isOpen = false;
             doorAnim.SetTrigger("Cerrar");

@@ -46,6 +46,12 @@ public class RayoDetect : MonoBehaviour
                 canInteract = false;
             }
         }
+        else
+        {
+            lookingTo = null;
+            canPickUp = false;
+            canInteract = false;
+        }
     }
 
     private void OnDrawGizmos()

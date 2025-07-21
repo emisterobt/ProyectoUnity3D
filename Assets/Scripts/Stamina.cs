@@ -53,9 +53,14 @@ public class Stamina : MonoBehaviour
 
     private void EnergyRecharge()
     {
-        if (playerMove.canRun)
+        if (playerMove.canRun && playerMove.isSprinting)
         {
             return ;
+        }
+        else if(playerMove.canRun && !playerMove.isSprinting)
+        {
+            actualStamina += Time.deltaTime;
+            actualStamina = Math.Clamp(actualStamina, 0, totalStamina);
         }
         else if (!playerMove.canRun)
         {

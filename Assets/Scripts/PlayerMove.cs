@@ -4,6 +4,8 @@ public class PlayerMove : MonoBehaviour
 {
     private CharacterController controller;
 
+    public bool isHiding;
+
     private float movX;
     private float movZ;
 
@@ -45,6 +47,8 @@ public class PlayerMove : MonoBehaviour
     public float charConCenterBase;
     public float charConCenterCrouch;
 
+    public SphereCollider soundArea;
+
     void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -61,6 +65,8 @@ public class PlayerMove : MonoBehaviour
     {
         if (Camera.main != null)
         {
+            
+
             isGrounded = Physics.CheckSphere(grndChck.position, radius, whatIsGround);
 
             velY.y += gravity * Time.deltaTime;
@@ -87,6 +93,8 @@ public class PlayerMove : MonoBehaviour
                 Sprint();
             }
 
+            soundArea.radius = isSprinting ? 6 : isCrouching ? 0.5f : 2;
+
         }
 
 
@@ -107,6 +115,7 @@ public class PlayerMove : MonoBehaviour
             isSprinting = false;
             controller.center = new Vector3(0, charConCenterCrouch, 0);
             cameraPlayer.transform.localPosition = new Vector3(0, camCrouch, 0);
+            
 
         }
         else
@@ -114,6 +123,7 @@ public class PlayerMove : MonoBehaviour
             controller.height = basePlayerHeight;
             controller.center = new Vector3(0, charConCenterBase, 0);
             cameraPlayer.transform.localPosition = new Vector3(0, camBase, 0);
+            
 
         }
 
@@ -124,11 +134,14 @@ public class PlayerMove : MonoBehaviour
         if (!isCrouching && canRun)
         {
             isSprinting = !isSprinting;
+            
         }
         else if (!canRun)
         {
             isSprinting = false;
+            
         }
+
     }
 
     private void OnDrawGizmos()

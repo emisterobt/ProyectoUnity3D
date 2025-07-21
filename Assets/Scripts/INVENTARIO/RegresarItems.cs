@@ -37,7 +37,7 @@ public class RegresarItems : MonoBehaviour
             Vector3 spawnPosition = (playerLoc != null) ? playerLoc.position : lastLoc;
 
             Vector3 randomOffset = Random.insideUnitSphere * spawnOffsetRadius;
-            randomOffset.y = 0;
+            randomOffset.y = -0.71f;
 
             spawnPosition += randomOffset;
 
@@ -48,6 +48,7 @@ public class RegresarItems : MonoBehaviour
             Destroy(clone.GetComponent<PhyssicalInventoryu>());
             Destroy(clone.GetComponent<Rigidbody>());
             Destroy(other.gameObject);
+
         }
         CamaraInventario.Instance.CambiarCamara();
     }
