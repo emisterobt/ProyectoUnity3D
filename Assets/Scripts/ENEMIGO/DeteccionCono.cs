@@ -14,7 +14,6 @@ public class DeteccionCono : MonoBehaviour
     public float fov = 30.0f;
     private float dotFov = 0.0f;
 
-    
     public bool onFOV = false;
     private void Start()
     {
@@ -23,6 +22,7 @@ public class DeteccionCono : MonoBehaviour
 
     private void Update()
     {
+
         if ((distance <= radius * radius) && (dot >= dotFov))
         {
             onFOV = true;

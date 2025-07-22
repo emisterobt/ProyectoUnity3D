@@ -50,7 +50,7 @@ public class RayoDetect : MonoBehaviour
         {
             lookingTo = null;
             canPickUp = false;
-            canInteract = false;
+            canInteract = false; 
         }
     }
 

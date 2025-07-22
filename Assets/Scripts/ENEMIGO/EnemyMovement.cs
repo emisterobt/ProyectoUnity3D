@@ -21,6 +21,12 @@ public class EnemyMovement : MonoBehaviour
     private LayerMask mask;
 
     [SerializeField]
+    private bool soundDetected = false;
+
+    [SerializeField]
+    private Transform soundEmmiter;
+
+    [SerializeField]
     private Transform[] positionsToMove;
 
     public int coord = 0;
@@ -34,36 +40,41 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
         detect = Physics.CheckSphere(transform.position, radius,mask);
-
-        if (Vector3.Distance(transform.position, positionsToMove[coord].position) < .4f)
+        if (!deteccionCono.onFOV && soundDetected == false && soundEmmiter == null)
         {
-            coord = Random.Range(0,positionsToMove.Length);
-            Debug.Log(coord);
-            if (coord >= positionsToMove.Length)
-            {
-                coord = 0;
-            }          
+            Patrullar();
         }
-
-        if (deteccionCono.onFOV && !pM.isHiding)
+        else if (soundDetected == true && !deteccionCono.onFOV)
+        {
+            transform.LookAt(soundEmmiter.position);
+            agent.SetDestination(soundEmmiter.position);
+        }
+        else if (deteccionCono.onFOV && !pM.isHiding)
         {
             transform.LookAt(player);
             agent.SetDestination(player.position);
         }
-        else
-        {
-            agent.SetDestination(positionsToMove[coord].position);
-            agent.stoppingDistance = 0;
-        }
+
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Deteccion"))
         {
             Debug.Log("s");
-            transform.LookAt(other.transform.position);
-            agent.SetDestination(other.transform.position);
+            soundEmmiter = other.transform;
+            soundDetected = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Deteccion"))
+        {
+            Debug.Log("Out");
+            Patrullar();
+            soundEmmiter = null;
+            soundDetected = false;
         }
     }
 
@@ -73,4 +84,19 @@ public class EnemyMovement : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, radius);
     }
 
+
+    public void Patrullar()
+    {
+        Debug.Log("Patrol");
+        agent.SetDestination(positionsToMove[coord].position);
+        if (Vector3.Distance(transform.position, positionsToMove[coord].position) < .4f)
+        {
+            coord = Random.Range(0, positionsToMove.Length);
+            Debug.Log(coord);
+            if (coord >= positionsToMove.Length)
+            {
+                coord = 0;
+            }
+        }
+    }
 }
