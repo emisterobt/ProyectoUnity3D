@@ -456,7 +456,7 @@ MonoBehaviour:
   active: 1
   normalBias:
     m_OverrideState: 1
-    m_Value: 0.33
+    m_Value: 0.333
   viewBias:
     m_OverrideState: 1
     m_Value: 0
@@ -889,10 +889,10 @@ MonoBehaviour:
     m_Value: {x: 1, y: 1, z: 1, w: 0}
   gamma:
     m_OverrideState: 1
-    m_Value: {x: 0.8687664, y: 0.88908404, z: 1, w: -0.1389854}
+    m_Value: {x: 1, y: 1, z: 1, w: 0}
   gain:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: -0.5350937}
+    m_Value: {x: 1, y: 1, z: 1, w: 0}
 --- !u!114 &6940869943325143175
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -927,10 +927,10 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.539
+    m_Value: 0.352
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.332
+    m_Value: 0.2
   rounded:
     m_OverrideState: 1
     m_Value: 0
