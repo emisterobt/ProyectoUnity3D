@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -29,9 +30,12 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField]
     private Transform[] positionsToMove;
 
+    private RaycastEnemigo raycast;
+
     public int coord = 0;
     void Start()
     {
+        raycast = GetComponent<RaycastEnemigo>();
         deteccionCono = GetComponent<DeteccionCono>();
         iniPos = transform.position;
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -40,7 +44,7 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
         detect = Physics.CheckSphere(transform.position, radius,mask);
-        if (!deteccionCono.onFOV && soundDetected == false && soundEmmiter == null)
+        if (!deteccionCono.onFOV && soundDetected == false && soundEmmiter == null && !raycast.playerInRange || pM.isHiding)
         {
             Patrullar();
         }
@@ -49,10 +53,15 @@ public class EnemyMovement : MonoBehaviour
             transform.LookAt(soundEmmiter.position);
             agent.SetDestination(soundEmmiter.position);
         }
-        else if (deteccionCono.onFOV && !pM.isHiding)
+        else if (deteccionCono.onFOV && !pM.isHiding || raycast.playerInRange && !pM.isHiding && !pM.isCrouching)
         {
             transform.LookAt(player);
             agent.SetDestination(player.position);
+        }
+
+        if (raycast.changeLoc)
+        {
+            transform.position = iniPos;
         }
 
     }
@@ -64,6 +73,13 @@ public class EnemyMovement : MonoBehaviour
             Debug.Log("s");
             soundEmmiter = other.transform;
             soundDetected = true;
+        }
+
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("Atrapo Al Jugador");
+            SceneManager.LoadScene("EscenaMuerte");
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 
@@ -89,10 +105,9 @@ public class EnemyMovement : MonoBehaviour
     {
         Debug.Log("Patrol");
         agent.SetDestination(positionsToMove[coord].position);
-        if (Vector3.Distance(transform.position, positionsToMove[coord].position) < .4f)
+        if (Vector3.Distance(transform.position, positionsToMove[coord].position) < .4f || raycast.changeLoc)
         {
             coord = Random.Range(0, positionsToMove.Length);
-            Debug.Log(coord);
             if (coord >= positionsToMove.Length)
             {
                 coord = 0;

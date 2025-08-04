@@ -44,7 +44,6 @@ public class FlashLightToggle : MonoBehaviour
         if (other != null && other.CompareTag("Walls") && isOn)
         {
             isOn = false;
-            Debug.Log("Collision with " + other.gameObject.name);
             isColliding = true;
         }
     }

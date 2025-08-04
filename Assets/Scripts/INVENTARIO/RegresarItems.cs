@@ -27,7 +27,7 @@ public class RegresarItems : MonoBehaviour
     }
 
 
-        
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -44,12 +44,17 @@ public class RegresarItems : MonoBehaviour
             Items obj = other.gameObject.GetComponent<Items>();
             Inventario2.Instance.RemoveItem(obj);
             GameObject clone = Instantiate(other.gameObject, spawnPosition, Quaternion.identity);
-            clone.transform.localScale = new Vector3(0.24f, 0.24f, 0.24f);
+            clone.transform.localPosition = clone.transform.localScale / 3;
             Destroy(clone.GetComponent<PhyssicalInventoryu>());
             Destroy(clone.GetComponent<Rigidbody>());
             Destroy(other.gameObject);
 
         }
-        CamaraInventario.Instance.CambiarCamara();
+
+        if (CamaraInventario.Instance.index == 1)
+        {
+            CamaraInventario.Instance.CambiarCamara();
+
+        }
     }
 }

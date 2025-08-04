@@ -6,8 +6,8 @@ public class PlayerMove : MonoBehaviour
 
     public bool isHiding;
 
-    private float movX;
-    private float movZ;
+    public float movX;
+    public float movZ;
 
     [SerializeField]
     private float actualMovSpeed;

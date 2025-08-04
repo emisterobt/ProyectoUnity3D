@@ -22,13 +22,21 @@ public class Inventario2 : MonoBehaviour
     }
     public void CollectItems(Items item)
     {
-        Items clone = Instantiate(item, inventorySpawn.position,inventorySpawn.rotation);
+        Items clone = Instantiate(item, inventorySpawn.position, inventorySpawn.rotation);
         inventarioPruebas.Add(clone);
         clone.gameObject.AddComponent<PhyssicalInventoryu>();
         clone.gameObject.AddComponent<Rigidbody>();
         Rigidbody rb = clone.GetComponent<Rigidbody>();
-        rb.constraints = RigidbodyConstraints.FreezePositionZ;
-        clone.transform.localScale = new(0.5f, 0.5f, 0.5f);
+        clone.transform.localScale = clone.transform.localScale * 3;
+
+        if (clone.itemType == Items.ItemType.Key)
+        {
+            rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        }
+        else if (clone.itemType == Items.ItemType.Battery)
+        {
+            rb.constraints = RigidbodyConstraints.FreezePositionZ;
+        }
         Destroy(item.gameObject);
     }
 
@@ -46,7 +54,7 @@ public class Inventario2 : MonoBehaviour
     public void RemoveItem(Items item)
     {
         inventarioPruebas.Remove(item);
-        
+
     }
 
 
