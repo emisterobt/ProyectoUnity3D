@@ -12,7 +12,7 @@ public class FlashLightToggle : MonoBehaviour
 
     public GameObject luzApoyo;
 
-    
+
     void Start()
     {
         flashLight = transform.GetChild(0).GetComponent<Light>();
@@ -24,18 +24,26 @@ public class FlashLightToggle : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             isOn = !isOn;
-
-        }
             if (isOn)
             {
-                flashLight.enabled = true;
-                luzApoyo.SetActive(true);
+                AudioMngr.Instance.Play("PrenderLinterna");
+            }
+            else if (!isOn)
+            {
+                AudioMngr.Instance.Play("ApagarLinterna");
             }
 
-            if (!isOn)
-            {
-                flashLight.enabled = false;
-                luzApoyo.SetActive(false);
+        }
+        if (isOn)
+        {
+            flashLight.enabled = true;
+            luzApoyo.SetActive(true);
+        }
+
+        if (!isOn)
+        {
+            flashLight.enabled = false;
+            luzApoyo.SetActive(false);
         }
     }
 

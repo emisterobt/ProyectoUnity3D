@@ -45,6 +45,14 @@ public class RegresarItems : MonoBehaviour
             Inventario2.Instance.RemoveItem(obj);
             GameObject clone = Instantiate(other.gameObject, spawnPosition, Quaternion.identity);
             clone.transform.localScale = clone.transform.localScale / 3;
+            if (obj.itemType == Items.ItemType.Key)
+            {
+                AudioMngr.Instance.Play("LLaveCayendo");
+            }
+            else if (obj.itemType == Items.ItemType.Battery)
+            {
+                //AudioMngr.Instance.Play("Bateria");
+            }
             Destroy(clone.GetComponent<PhyssicalInventoryu>());
             Destroy(clone.GetComponent<Rigidbody>());
             Destroy(other.gameObject);

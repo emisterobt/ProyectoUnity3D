@@ -38,6 +38,8 @@ public class Inventario2 : MonoBehaviour
             clone.transform.Rotate(-90f, 0f, 0f);
             rb.constraints = RigidbodyConstraints.FreezePositionZ;
         }
+
+        AudioMngr.Instance.Play("AgarrarObjeto");
         Destroy(item.gameObject);
     }
 

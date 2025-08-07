@@ -33,6 +33,7 @@ public class AudioMngr : MonoBehaviour
             if (s.nombreAudio == nombre)
             {
                 s.audioSource.Play();
+                Debug.Log($"Reproduciendo {nombre}");
                 return;
             }
         }

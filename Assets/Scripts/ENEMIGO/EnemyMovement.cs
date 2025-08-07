@@ -37,6 +37,11 @@ public class EnemyMovement : MonoBehaviour
 
     public int coord = 0;
 
+    public EnemyType type;
+
+    [SerializeField]
+    private bool detectedPlayer;
+
     private int maxChangesCoord = 5;
     void Start()
     {
@@ -50,7 +55,7 @@ public class EnemyMovement : MonoBehaviour
         {
             anim = transform.GetChild(1).GetComponent<Animator>();
         }
-            anim.SetBool("isWalking", true);
+        anim.SetBool("isWalking", true);
     }
     void Update()
     {
@@ -58,24 +63,27 @@ public class EnemyMovement : MonoBehaviour
         if (!deteccionCono.onFOV && soundDetected == false && soundEmmiter == null && !raycast.playerInRange || pM.isHiding)
         {
             Patrullar();
+            detectedPlayer = false;
         }
         else if (soundDetected == true && !deteccionCono.onFOV)
         {
             transform.LookAt(soundEmmiter.position);
+            detectedPlayer = false;
             agent.SetDestination(soundEmmiter.position);
         }
         else if (deteccionCono.onFOV && !pM.isHiding || raycast.playerInRange && !pM.isHiding && !pM.isCrouching)
         {
             transform.LookAt(player);
+            detectedPlayer = true;
             agent.SetDestination(player.position);
         }
 
-
+        Sonidos();
 
         if (raycast.changeLoc)
         {
             maxChangesCoord--;
-            coord = Random.Range(0, positionsToMove.Length);
+            coord = UnityEngine.Random.Range(0, positionsToMove.Length);
             raycast.changeLoc = false;
             if (maxChangesCoord == 0)
             {
@@ -130,11 +138,35 @@ public class EnemyMovement : MonoBehaviour
         if (Vector3.Distance(transform.position, positionsToMove[coord].position) < .4f || raycast.changeLoc)
         {
             StartCoroutine(MantenerPosicion());
-            coord = Random.Range(0, positionsToMove.Length);
+            coord = UnityEngine.Random.Range(0, positionsToMove.Length);
             if (coord >= positionsToMove.Length)
             {
                 coord = 0;
             }
+
+        }
+    }
+
+    public void Sonidos()
+    {
+        switch (type)
+        {
+            case EnemyType.Xperimento:
+                {
+                    if (detectedPlayer)
+                    {
+                        AudioMngr.Instance.Play("XperimentoDetect");
+                    }
+                    break;
+                }
+            case EnemyType.Guillotina:
+                {
+                    if (detectedPlayer)
+                    {
+                        AudioMngr.Instance.Play("FantasmaDetect");
+                    }
+                    break;
+                }
 
         }
     }
@@ -148,4 +180,10 @@ public class EnemyMovement : MonoBehaviour
         anim.SetBool("isWalking", true);
 
     }
+
+    public enum EnemyType
+    {
+        Xperimento, Guillotina
+    }
+
 }

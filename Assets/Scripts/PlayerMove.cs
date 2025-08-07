@@ -49,6 +49,11 @@ public class PlayerMove : MonoBehaviour
 
     public SphereCollider soundArea;
 
+    private string sonido;
+
+    private bool isAudioPlaying = false;
+
+
     void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -65,7 +70,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (Camera.main != null)
         {
-            
+
 
             isGrounded = Physics.CheckSphere(grndChck.position, radius, whatIsGround);
 
@@ -83,6 +88,33 @@ public class PlayerMove : MonoBehaviour
             Vector3 movimiento = transform.right * movX + transform.forward * movZ;
             controller.Move(movimiento);
 
+
+
+            if (movimiento != Vector3.zero && !isAudioPlaying)
+            {
+                sonido = isSprinting ? "Correr" : "Caminando";
+                Debug.Log(sonido);
+                AudioMngr.Instance.Play(sonido);
+                isAudioPlaying = true;
+            }
+            else if (movimiento == Vector3.zero && isAudioPlaying)
+            {
+                Debug.Log($"Deteniendo {sonido}");
+                AudioMngr.Instance.Stop(sonido);
+                isAudioPlaying = false;
+            }
+            else if (movimiento != Vector3.zero && isAudioPlaying)
+            {
+                string nuevoSonido = isSprinting ? "Correr" : "Caminando";
+                if (sonido != nuevoSonido)
+                {
+                    Debug.Log($"Cambiando sonido de {sonido} a {nuevoSonido}");
+                    AudioMngr.Instance.Stop(sonido);
+                    AudioMngr.Instance.Play(nuevoSonido);
+                    sonido = nuevoSonido;
+                }
+            }
+
             if (Input.GetKeyDown(KeyCode.C))
             {
                 Crouch();
@@ -94,6 +126,8 @@ public class PlayerMove : MonoBehaviour
             }
 
             soundArea.radius = isSprinting ? 6 : isCrouching ? 0.5f : 2;
+
+            
 
         }
 
@@ -115,7 +149,7 @@ public class PlayerMove : MonoBehaviour
             isSprinting = false;
             controller.center = new Vector3(0, charConCenterCrouch, 0);
             cameraPlayer.transform.localPosition = new Vector3(0, camCrouch, 0);
-            
+
 
         }
         else
@@ -123,7 +157,7 @@ public class PlayerMove : MonoBehaviour
             controller.height = basePlayerHeight;
             controller.center = new Vector3(0, charConCenterBase, 0);
             cameraPlayer.transform.localPosition = new Vector3(0, camBase, 0);
-            
+
 
         }
 
@@ -134,12 +168,12 @@ public class PlayerMove : MonoBehaviour
         if (!isCrouching && canRun)
         {
             isSprinting = !isSprinting;
-            
+
         }
         else if (!canRun)
         {
             isSprinting = false;
-            
+
         }
 
     }

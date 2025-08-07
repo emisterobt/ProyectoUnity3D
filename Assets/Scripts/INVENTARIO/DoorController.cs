@@ -43,6 +43,10 @@ public class DoorController : MonoBehaviour
             isOpen = true;
             doorAnim.SetTrigger("Abrir");
         }
+        else if (requiresKey && !isOpen && !Inventario2.Instance.HasKey(requiredKeyID))
+        {
+            AudioMngr.Instance.Play("PuertaCerrada");
+        }
     }
 
 }
