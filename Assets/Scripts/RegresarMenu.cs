@@ -17,7 +17,7 @@ public class RegresarMenu : MonoBehaviour
 
     public IEnumerator TimerVolver()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(20);
         SceneManager.LoadScene("MenuPrincipal");
     }
 }
