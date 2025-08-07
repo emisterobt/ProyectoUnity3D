@@ -35,6 +35,7 @@ public class Inventario2 : MonoBehaviour
         }
         else if (clone.itemType == Items.ItemType.Battery)
         {
+            clone.transform.Rotate(-90f, 0f, 0f);
             rb.constraints = RigidbodyConstraints.FreezePositionZ;
         }
         Destroy(item.gameObject);

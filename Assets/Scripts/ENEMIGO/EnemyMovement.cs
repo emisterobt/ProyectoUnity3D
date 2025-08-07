@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
@@ -32,7 +33,11 @@ public class EnemyMovement : MonoBehaviour
 
     private RaycastEnemigo raycast;
 
+    private Animator anim;
+
     public int coord = 0;
+
+    private int maxChangesCoord = 5;
     void Start()
     {
         raycast = GetComponent<RaycastEnemigo>();
@@ -40,10 +45,16 @@ public class EnemyMovement : MonoBehaviour
         iniPos = transform.position;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+
+        if (anim == null)
+        {
+            anim = transform.GetChild(1).GetComponent<Animator>();
+        }
+            anim.SetBool("isWalking", true);
     }
     void Update()
     {
-        detect = Physics.CheckSphere(transform.position, radius,mask);
+        detect = Physics.CheckSphere(transform.position, radius, mask);
         if (!deteccionCono.onFOV && soundDetected == false && soundEmmiter == null && !raycast.playerInRange || pM.isHiding)
         {
             Patrullar();
@@ -59,9 +70,18 @@ public class EnemyMovement : MonoBehaviour
             agent.SetDestination(player.position);
         }
 
+
+
         if (raycast.changeLoc)
         {
-            transform.position = iniPos;
+            maxChangesCoord--;
+            coord = Random.Range(0, positionsToMove.Length);
+            raycast.changeLoc = false;
+            if (maxChangesCoord == 0)
+            {
+                transform.position = iniPos;
+                maxChangesCoord = 5;
+            }
         }
 
     }
@@ -105,13 +125,27 @@ public class EnemyMovement : MonoBehaviour
     {
         Debug.Log("Patrol");
         agent.SetDestination(positionsToMove[coord].position);
+        anim.SetBool("isWalking", true);
+
         if (Vector3.Distance(transform.position, positionsToMove[coord].position) < .4f || raycast.changeLoc)
         {
+            StartCoroutine(MantenerPosicion());
             coord = Random.Range(0, positionsToMove.Length);
             if (coord >= positionsToMove.Length)
             {
                 coord = 0;
             }
+
         }
+    }
+
+    private IEnumerator MantenerPosicion()
+    {
+        agent.isStopped = true;
+        anim.SetBool("isWalking", false);
+        yield return new WaitForSeconds(2);
+        agent.isStopped = false;
+        anim.SetBool("isWalking", true);
+
     }
 }

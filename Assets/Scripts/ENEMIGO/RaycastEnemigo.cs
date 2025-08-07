@@ -11,11 +11,13 @@ public class RaycastEnemigo : MonoBehaviour
     private LayerMask playerMask;
 
     [SerializeField]
-    private float timeToReset = 5;
+    private float timeToReset = 2;
     
     public bool changeLoc;
     [SerializeField]
     private float countdown;
+
+    public bool infrontOfDoor;
 
     public bool playerInRange;
     void Start()
@@ -37,18 +39,28 @@ public class RaycastEnemigo : MonoBehaviour
             if (hit.collider.CompareTag("Deteccion"))
             {
                 playerInRange = true;
+                infrontOfDoor = false;
             }
             else if (hit.collider.CompareTag("Door"))
             {
-                if (countdown > 0)
+                DoorController doorCtrl =  hit.transform.GetComponent<DoorController>();
+
+                if (!doorCtrl.isOpen)
                 {
-                    countdown -= Time.deltaTime;
+                    
+                    if (countdown > 0)
+                    {
+                        countdown -= Time.deltaTime;
+                    }
+                    
+                    else if (countdown <= 0)
+                    {
+                        changeLoc = true;
+                        countdown = timeToReset;
+                    }
+
                 }
-                else if (countdown <= 0)
-                {
-                    changeLoc = true;
-                    countdown = timeToReset;
-                }
+                
             }
             else
             {
