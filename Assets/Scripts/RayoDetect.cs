@@ -11,12 +11,15 @@ public class RayoDetect : MonoBehaviour
 
     public LayerMask interactables;
 
+    public GameObject eInteractua;
+
     private void Awake()
     {
         Instance = this;
     }
     private void Start()
     {
+        eInteractua.SetActive(false);
         originPoint = transform.parent;
     }
 
@@ -29,6 +32,7 @@ public class RayoDetect : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(originPoint.position, originPoint.forward, out hit, range, interactables))
         {
+            eInteractua.SetActive(true);
             if (hit.collider.CompareTag("PickUpItem"))
             {
                 lookingTo = hit.collider.gameObject;
@@ -51,6 +55,7 @@ public class RayoDetect : MonoBehaviour
             lookingTo = null;
             canPickUp = false;
             canInteract = false; 
+            eInteractua.SetActive(false);
         }
     }
 

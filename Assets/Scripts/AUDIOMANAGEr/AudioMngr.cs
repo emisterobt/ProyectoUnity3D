@@ -26,6 +26,11 @@ public class AudioMngr : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        Play("Ambient");
+    }
+
     public void Play(string nombre)
     {
         foreach (Sonidos s in sonidos)

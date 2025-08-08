@@ -22,6 +22,11 @@ public class DeteccionCono : MonoBehaviour
 
     private void Update()
     {
+        v = target.position - transform.position;
+        distance = v.sqrMagnitude;
+
+
+        v.Normalize();
 
         if ((distance <= radius * radius) && (dot >= dotFov))
         {
@@ -38,11 +43,7 @@ public class DeteccionCono : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, radius);
 
-        v = target.position - transform.position;
-        distance = v.sqrMagnitude;
 
-
-        v.Normalize();
 
         dotFov = Mathf.Cos(fov * 0.5f * Mathf.Deg2Rad);
         dot = Vector3.Dot(transform.forward, v);

@@ -40,7 +40,7 @@ public class EnemyMovement : MonoBehaviour
     public EnemyType type;
 
     [SerializeField]
-    private bool detectedPlayer;
+    private bool detectedPlayer = false;
 
     private int maxChangesCoord = 5;
     void Start()
@@ -50,32 +50,33 @@ public class EnemyMovement : MonoBehaviour
         iniPos = transform.position;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        anim = transform.GetChild(1).GetComponent<Animator>();
 
-        if (anim == null)
-        {
-            anim = transform.GetChild(1).GetComponent<Animator>();
-        }
-        anim.SetBool("isWalking", true);
+        anim.SetBool("IsWalking", true);
+        Patrullar();
     }
+
     void Update()
     {
-        detect = Physics.CheckSphere(transform.position, radius, mask);
-        if (!deteccionCono.onFOV && soundDetected == false && soundEmmiter == null && !raycast.playerInRange || pM.isHiding)
+
+
+        if (!deteccionCono.onFOV && !soundDetected && soundEmmiter == null && !raycast.playerInRange || pM.isHiding)
         {
             Patrullar();
+            Debug.Log("Patrullando");
             detectedPlayer = false;
         }
         else if (soundDetected == true && !deteccionCono.onFOV)
         {
-            transform.LookAt(soundEmmiter.position);
-            detectedPlayer = false;
-            agent.SetDestination(soundEmmiter.position);
+            ChaseSound();
+            Debug.Log("Persiguiendo");
+
         }
         else if (deteccionCono.onFOV && !pM.isHiding || raycast.playerInRange && !pM.isHiding && !pM.isCrouching)
         {
-            transform.LookAt(player);
-            detectedPlayer = true;
-            agent.SetDestination(player.position);
+            ChasePlayer();
+            Debug.Log("Escuchando");
+
         }
 
         Sonidos();
@@ -98,7 +99,6 @@ public class EnemyMovement : MonoBehaviour
     {
         if (other.CompareTag("Deteccion"))
         {
-            Debug.Log("s");
             soundEmmiter = other.transform;
             soundDetected = true;
         }
@@ -115,7 +115,6 @@ public class EnemyMovement : MonoBehaviour
     {
         if (other.CompareTag("Deteccion"))
         {
-            Debug.Log("Out");
             Patrullar();
             soundEmmiter = null;
             soundDetected = false;
@@ -131,9 +130,8 @@ public class EnemyMovement : MonoBehaviour
 
     public void Patrullar()
     {
-        Debug.Log("Patrol");
         agent.SetDestination(positionsToMove[coord].position);
-        anim.SetBool("isWalking", true);
+        anim.SetBool("IsWalking", true);
 
         if (Vector3.Distance(transform.position, positionsToMove[coord].position) < .4f || raycast.changeLoc)
         {
@@ -147,13 +145,33 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    public void ChasePlayer()
+    {
+        if (player != null)
+        {
+            detectedPlayer = true;
+            transform.LookAt(player);
+            agent.SetDestination(player.position);
+        }
+    }
+
+    public void ChaseSound()
+    {
+        if (soundEmmiter != null)
+        {
+            detectedPlayer = false;
+            transform.LookAt(soundEmmiter.position);
+            agent.SetDestination(soundEmmiter.position);
+        }
+    }
+
     public void Sonidos()
     {
         switch (type)
         {
             case EnemyType.Xperimento:
                 {
-                    if (detectedPlayer)
+                    if (detectedPlayer == true)
                     {
                         AudioMngr.Instance.Play("XperimentoDetect");
                     }
@@ -161,7 +179,7 @@ public class EnemyMovement : MonoBehaviour
                 }
             case EnemyType.Guillotina:
                 {
-                    if (detectedPlayer)
+                    if (detectedPlayer == true)
                     {
                         AudioMngr.Instance.Play("FantasmaDetect");
                     }
@@ -174,10 +192,19 @@ public class EnemyMovement : MonoBehaviour
     private IEnumerator MantenerPosicion()
     {
         agent.isStopped = true;
-        anim.SetBool("isWalking", false);
+
+        if (anim != null)
+        {
+            anim.SetBool("IsWalking", false);
+        }
+
         yield return new WaitForSeconds(2);
+        
         agent.isStopped = false;
-        anim.SetBool("isWalking", true);
+        if (anim != null)
+        {
+            anim.SetBool("IsWalking", true);
+        }
 
     }
 
