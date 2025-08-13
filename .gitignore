@@ -93,3 +93,7 @@ fmod_editor.log
 /Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset.meta
 
 /Assets/Plugins/FMOD/Cache/Editor.meta
+Assets/Prefabs/Enemigos/Guillotina/Anim/IDLE.fbx
+Assets/Prefabs/Enemigos/Guillotina/Anim/IDLE.fbx.meta
+Assets/Prefabs/Enemigos/Guillotina/Anim/SCREAMER.fbx
+Assets/Prefabs/Enemigos/Guillotina/Anim/SCREAMER.fbx.meta
