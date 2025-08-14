@@ -53,13 +53,11 @@ public class PlayerMove : MonoBehaviour
 
     private bool isAudioPlaying = false;
 
-    private Animator anim;
 
     void Awake()
     {
         controller = GetComponent<CharacterController>();
         grndChck = transform.GetChild(0);
-        anim = GetComponent<Animator>();
     }
 
     private void Start()
@@ -70,10 +68,7 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("AnimacionInicio"))
-        {
-            return;
-        }
+
 
         if (Camera.main != null)
         {

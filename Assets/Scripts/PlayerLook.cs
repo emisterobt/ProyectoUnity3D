@@ -23,6 +23,14 @@ public class PlayerLook : MonoBehaviour
 
     private Vector3 startPos;
 
+    private Animator animator;
+
+
+    private void OnEnable()
+    {
+        animator = padre.GetComponent<Animator>();
+        Destroy(animator );
+    }
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;

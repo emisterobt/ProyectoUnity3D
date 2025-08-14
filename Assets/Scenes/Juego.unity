@@ -132134,6 +132134,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2338426949400276146, guid: 1e1c0ae93a5f3b24a81835750c835453, type: 3}
+      propertyPath: m_Mass
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338426949400276146, guid: 1e1c0ae93a5f3b24a81835750c835453, type: 3}
+      propertyPath: m_LinearDamping
+      value: -1.82
+      objectReference: {fileID: 0}
     - target: {fileID: 2676901806203635113, guid: 1e1c0ae93a5f3b24a81835750c835453, type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: 1.82e-43
@@ -234882,7 +234890,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3768469483664312893, guid: 96fe1e2993856914cb735f1e0f08caf5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.5874
+      value: 4.6093
       objectReference: {fileID: 0}
     - target: {fileID: 3768469483664312893, guid: 96fe1e2993856914cb735f1e0f08caf5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -256305,7 +256313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3768469483664312893, guid: 96fe1e2993856914cb735f1e0f08caf5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.602
+      value: 4.621
       objectReference: {fileID: 0}
     - target: {fileID: 3768469483664312893, guid: 96fe1e2993856914cb735f1e0f08caf5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -352690,6 +352698,10 @@ PrefabInstance:
     - target: {fileID: 1820661616007737882, guid: 62c2850b71478ae4b9c80d9082c988ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100738820885322920, guid: 62c2850b71478ae4b9c80d9082c988ef, type: 3}
+      propertyPath: m_Carve
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
