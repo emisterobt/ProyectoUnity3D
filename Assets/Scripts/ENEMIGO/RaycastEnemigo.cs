@@ -47,7 +47,7 @@ public class RaycastEnemigo : MonoBehaviour
 
                 if (!doorCtrl.isOpen)
                 {
-                    
+                    playerInRange = false;
                     if (countdown > 0)
                     {
                         countdown -= Time.deltaTime;

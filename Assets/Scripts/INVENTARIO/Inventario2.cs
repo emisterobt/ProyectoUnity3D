@@ -6,24 +6,40 @@ public class Inventario2 : MonoBehaviour
     public static Inventario2 Instance;
     public List<Items> inventarioPruebas = new List<Items>();
 
-    public Transform inventorySpawn;
+    public GameObject inventorySpawn;
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
+        }
+    }
+
+    private void Update()
+    {
+        if (inventorySpawn != null)
+        {
+            return;
+        }
+        else if (inventorySpawn == null)
+        {
+            inventorySpawn = GameObject.Find("PhysicalInventorySpawn");
+
         }
     }
     public void CollectItems(Items item)
     {
-        Items clone = Instantiate(item, inventorySpawn.position, inventorySpawn.rotation);
+        Items clone = Instantiate(item, inventorySpawn.transform.position, inventorySpawn.transform.rotation);
         inventarioPruebas.Add(clone);
+        clone.gameObject.layer = 9;
+        clone.transform.GetChild(0).gameObject.layer = 9;
+        clone.transform.GetChild(0).GetChild(0).gameObject.layer = 9;
         clone.gameObject.AddComponent<PhyssicalInventoryu>();
         clone.gameObject.AddComponent<Rigidbody>();
         Rigidbody rb = clone.GetComponent<Rigidbody>();
@@ -60,5 +76,8 @@ public class Inventario2 : MonoBehaviour
 
     }
 
-
+    public void ClearInventory()
+    {
+        inventarioPruebas.Clear();
+    }
 }

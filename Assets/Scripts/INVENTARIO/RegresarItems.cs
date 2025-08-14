@@ -44,6 +44,10 @@ public class RegresarItems : MonoBehaviour
             Items obj = other.gameObject.GetComponent<Items>();
             Inventario2.Instance.RemoveItem(obj);
             GameObject clone = Instantiate(other.gameObject, spawnPosition, Quaternion.identity);
+            clone.layer = 7;
+            clone.transform.GetChild(0).gameObject.layer = 7;
+            clone.transform.GetChild(0).GetChild(0).gameObject.layer = 7;
+
             clone.transform.localScale = clone.transform.localScale / 3;
             if (obj.itemType == Items.ItemType.Key)
             {

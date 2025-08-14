@@ -4,9 +4,19 @@ using UnityEngine.SceneManagement;
 
 public class RegresarMenu : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField]
+    private float animDuration;
     void Start()
     {
+        switch (GameManager.Instance.capturedBy)
+        {
+            case GameManager.EnemyType.Guillotina:
+                animDuration = 9f;
+                break;
+            case GameManager.EnemyType.Xperimento:
+                animDuration = .6f;
+                break;
+        }
         ReturnToMenu();
     }
 
@@ -17,7 +27,7 @@ public class RegresarMenu : MonoBehaviour
 
     public IEnumerator TimerVolver()
     {
-        yield return new WaitForSeconds(20);
+        yield return new WaitForSeconds(animDuration);
         SceneManager.LoadScene("MenuPrincipal");
     }
 }

@@ -105,8 +105,10 @@ public class EnemyMovement : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
+            AudioMngr.Instance.Stop("Correr");
+            GameManager.Instance.capturedBy = (GameManager.EnemyType)type; 
             Debug.Log("Atrapo Al Jugador");
-            SceneManager.LoadScene("EscenaMuerte");
+            GameManager.Instance.ScreamerAnim();
             Cursor.lockState = CursorLockMode.None;
         }
     }
@@ -191,12 +193,13 @@ public class EnemyMovement : MonoBehaviour
 
     private IEnumerator MantenerPosicion()
     {
-        agent.isStopped = true;
 
         if (anim != null)
         {
             anim.SetBool("IsWalking", false);
+            
         }
+        agent.isStopped = true;
 
         yield return new WaitForSeconds(2);
         
@@ -210,7 +213,7 @@ public class EnemyMovement : MonoBehaviour
 
     public enum EnemyType
     {
-        Xperimento, Guillotina
+        Xperimento, Guillotina, None
     }
 
 }

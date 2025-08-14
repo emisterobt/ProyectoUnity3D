@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,10 +9,16 @@ public class GameManager : MonoBehaviour
     public float fullBattery;
     public bool resetTime = false;
 
+    public EnemyType capturedBy;
 
+
+    public void OnSceneLoaded()
+    {
+        ScreamerAnim();
+    }
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
@@ -31,5 +38,22 @@ public class GameManager : MonoBehaviour
         }
         resetTime = true;
     }
-
+    public void ScreamerAnim()
+    {
+        switch (capturedBy)
+        {
+            case EnemyType.Guillotina:
+                SceneManager.LoadScene("EscenaMuerte");
+                break;
+            case EnemyType.Xperimento:
+                SceneManager.LoadScene("XPerimentoJumpscare");
+                break;
+            case EnemyType.None:
+                break;
+        }
+    }
+    public enum EnemyType
+    {
+        Xperimento, Guillotina, None
+    }
 }

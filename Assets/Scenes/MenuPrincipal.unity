@@ -3128,6 +3128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fullBattery: 0
   resetTime: 0
+  capturedBy: 0
 --- !u!4 &89640927
 Transform:
   m_ObjectHideFlags: 0
@@ -20157,6 +20158,111 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1 &706873872
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 706873874}
+  - component: {fileID: 706873873}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &706873873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706873872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f9345e9d494e9f4d9aaa986b4ea8877, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonidos:
+  - nombreAudio: PrenderLinterna
+    clip: {fileID: 8300000, guid: 6856789c89b7ada4cb2e180769297309, type: 3}
+    volumen: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - nombreAudio: ApagarLinterna
+    clip: {fileID: 8300000, guid: 75d0d7c8d2c66f849a1a9cbc8a164460, type: 3}
+    volumen: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - nombreAudio: Ambient
+    clip: {fileID: 8300000, guid: bdaaa32e38160f1428dbd66ec2f6e884, type: 3}
+    volumen: 1
+    loop: 1
+    audioSource: {fileID: 0}
+  - nombreAudio: Caminando
+    clip: {fileID: 8300000, guid: add4d2980d0c14347844ca72e5c91d02, type: 3}
+    volumen: 1
+    loop: 1
+    audioSource: {fileID: 0}
+  - nombreAudio: Correr
+    clip: {fileID: 8300000, guid: 602e67f7d7945e445976a3411ba8af1f, type: 3}
+    volumen: 0.395
+    loop: 1
+    audioSource: {fileID: 0}
+  - nombreAudio: LLaveCayendo
+    clip: {fileID: 8300000, guid: 28a5eb00000f9a8488a48af694a9f095, type: 3}
+    volumen: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - nombreAudio: AgarrarObjeto
+    clip: {fileID: 8300000, guid: e9e6350dd3854e540ba6009e72b16213, type: 3}
+    volumen: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - nombreAudio: PuertaCerrada
+    clip: {fileID: 8300000, guid: aee422f7601f3fc459b1af8c5a0faf8b, type: 3}
+    volumen: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - nombreAudio: FantasmaDetect
+    clip: {fileID: 8300000, guid: 212d913876094c04388a4739c00c8183, type: 3}
+    volumen: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - nombreAudio: Fantasma1
+    clip: {fileID: 8300000, guid: b75d1b291ecbeeb4bbb688258c82882e, type: 3}
+    volumen: 0.42
+    loop: 0
+    audioSource: {fileID: 0}
+  - nombreAudio: Fantasma2
+    clip: {fileID: 8300000, guid: f58fbcb533c996249afdae72c2b56bec, type: 3}
+    volumen: 0.361
+    loop: 0
+    audioSource: {fileID: 0}
+  - nombreAudio: XperimentoDetect
+    clip: {fileID: 8300000, guid: f8416010467c7934a9389e3f2fff76b8, type: 3}
+    volumen: 1
+    loop: 0
+    audioSource: {fileID: 0}
+--- !u!4 &706873874
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706873872}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.9, y: 6.20169, z: -29}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &710988986
 GameObject:
   m_ObjectHideFlags: 0
@@ -74894,3 +75000,4 @@ SceneRoots:
   - {fileID: 1809349341}
   - {fileID: 89640927}
   - {fileID: 1071317336}
+  - {fileID: 706873874}
