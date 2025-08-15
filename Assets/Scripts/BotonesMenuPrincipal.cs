@@ -20,7 +20,7 @@ public class BotonesMenuPrincipal : MonoBehaviour
 
     public void Creditos()
     {
-
+        SceneManager.LoadScene("Creditos");
 
         Debug.Log("Creditos");
     }
