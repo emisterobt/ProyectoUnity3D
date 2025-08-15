@@ -4,6 +4,9 @@ public class AudioMngr : MonoBehaviour
 {
     public static AudioMngr Instance;
 
+    [Range(0f, 1f)]
+    public float configVolume;
+
     public Sonidos[] sonidos;
 
     private void Awake()
@@ -53,6 +56,14 @@ public class AudioMngr : MonoBehaviour
                 s.audioSource.Stop();
                 return;
             }
+        }
+    }
+
+    public void ActualizarVolumen()
+    {
+        foreach (Sonidos s in sonidos)
+        {
+            s.audioSource.volume = configVolume;
         }
     }
 

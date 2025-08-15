@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class BotonesMenuPrincipal : MonoBehaviour
 {
-
+    public GameObject configs;
     public void IniciarJuego()
     {
         if(Inventario2.Instance == null)
@@ -20,14 +20,20 @@ public class BotonesMenuPrincipal : MonoBehaviour
 
     public void Creditos()
     {
+
+
         Debug.Log("Creditos");
     }
 
     public void Configuracion()
     {
+        configs.SetActive(true);
         Debug.Log("Configuracion");
     }
-
+     public void CerrarConfig()
+    {
+        configs.SetActive(false);
+    }
     public void Salir()
     {
         Debug.Log("Saliendo...");

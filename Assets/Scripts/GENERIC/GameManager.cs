@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
     }
 
     public void AddEnergy(float amount)
