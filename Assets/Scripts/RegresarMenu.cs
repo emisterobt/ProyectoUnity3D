@@ -11,7 +11,8 @@ public class RegresarMenu : MonoBehaviour
         switch (GameManager.Instance.capturedBy)
         {
             case GameManager.EnemyType.Guillotina:
-                animDuration = 9f;
+                animDuration = 7f;
+                StartCoroutine(TimeToScream());
                 break;
             case GameManager.EnemyType.Xperimento:
                 animDuration = .6f;
@@ -28,6 +29,13 @@ public class RegresarMenu : MonoBehaviour
     public IEnumerator TimerVolver()
     {
         yield return new WaitForSeconds(animDuration);
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene("MenuPrincipal");
+    }
+
+    public IEnumerator TimeToScream()
+    {
+        yield return new WaitForSeconds(2);
+        AudioMngr.Instance.Play("FantasmaDetect");
     }
 }

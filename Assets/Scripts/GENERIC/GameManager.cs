@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
         switch (capturedBy)
         {
             case EnemyType.Guillotina:
+                AudioMngr.Instance.Stop("Fantasma2");
                 SceneManager.LoadScene("EscenaMuerte");
                 break;
             case EnemyType.Xperimento:

@@ -7,6 +7,10 @@ public class PhyssicalInventoryu : MonoBehaviour
     private GameObject camInv;
     Vector3 mousePosition;
 
+    public Texture2D cursorAbierto;
+    public Texture2D cursorCerrado;
+
+
     private void Update()
     {
         cam = GameObject.Find("CamaraInventario")?.GetComponent<Camera>();
@@ -27,6 +31,7 @@ public class PhyssicalInventoryu : MonoBehaviour
     }
     private void OnMouseDrag()
     {
+        
         if (cam != null)
         {
             transform.position = cam.ScreenToWorldPoint(Input.mousePosition - mousePosition);
