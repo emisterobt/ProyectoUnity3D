@@ -2,12 +2,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static UnityEngine.Rendering.STP;
 
 public class BotonPausa : MonoBehaviour
 {
-    public TextMeshProUGUI botonRegresar;
-    public TextMeshProUGUI botonConfiguracion;
+    public GameObject botonRegresar;      
+    public GameObject botonConfiguracion; 
 
     public GameObject configs;
 
@@ -15,22 +14,23 @@ public class BotonPausa : MonoBehaviour
 
     private void Start()
     {
-        botonRegresar.enabled = false;
-        botonConfiguracion.enabled = false;
+        botonRegresar.SetActive(false);
+        botonConfiguracion.SetActive(false);
     }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
         {
             Cursor.lockState = CursorLockMode.None;
-            botonRegresar.enabled = true;
-            botonConfiguracion.enabled = true;
+            botonRegresar.SetActive(true);
+            botonConfiguracion.SetActive(true);
             isPaused = true;
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && isPaused)
         {
-            botonRegresar.enabled = false;
-            botonConfiguracion.enabled = false;
+            botonRegresar.SetActive(false);
+            botonConfiguracion.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             isPaused = false;
         }
@@ -50,5 +50,4 @@ public class BotonPausa : MonoBehaviour
     {
         configs.SetActive(false);
     }
-
 }
