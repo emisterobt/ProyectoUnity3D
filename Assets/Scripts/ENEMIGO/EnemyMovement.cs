@@ -201,7 +201,7 @@ public class EnemyMovement : MonoBehaviour
         }
         agent.isStopped = true;
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(5.5f);
         
         agent.isStopped = false;
         if (anim != null)
