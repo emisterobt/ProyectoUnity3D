@@ -52,7 +52,7 @@ public class FlashLightBattery : MonoBehaviour
             onOff.isOn = false;
         }
 
-        if (onOff.isOn)
+        if (onOff.isOn && !CheatCode.Instance.infiniteLight)
         {
             timer -= Time.deltaTime;
         }

@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene("EscenaMuerte");
                 break;
             case EnemyType.Xperimento:
-                AudioMngr.Instance.Play("ScreamerXperimento");
+                
                 AudioMngr.Instance.Stop("XperimentoDetect");
                 SceneManager.LoadScene("XPerimentoJumpscare");
                 break;

@@ -9,7 +9,6 @@ public class Victoria : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Cursor.lockState = CursorLockMode.None;
-            AudioMngr.Instance.Play("Victoria");
             SceneManager.LoadScene("PantallaVictoria");
         }
     }

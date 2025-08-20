@@ -9,6 +9,7 @@ public class CheatCode : MonoBehaviour
 
     
     public bool isImmortal;
+    public bool infiniteLight;
     private void Awake()
     {
         if (Instance == null)
@@ -39,6 +40,11 @@ public class CheatCode : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.I))
             {
                 isImmortal = !isImmortal;
+            }
+
+            if (Input.GetKeyUp(KeyCode.L))
+            {
+                infiniteLight = !infiniteLight;
             }
         }
     }
