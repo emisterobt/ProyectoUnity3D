@@ -11,7 +11,7 @@ public class RegresarMenu : MonoBehaviour
         switch (GameManager.Instance.capturedBy)
         {
             case GameManager.EnemyType.Guillotina:
-                animDuration = 7f;
+                animDuration = 2f;
                 StartCoroutine(TimeToScream());
                 break;
             case GameManager.EnemyType.Xperimento:
