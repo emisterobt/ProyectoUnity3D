@@ -60,7 +60,7 @@ public class EnemyMovement : MonoBehaviour
     {
 
 
-        if (!deteccionCono.onFOV && !soundDetected && soundEmmiter == null && !raycast.playerInRange || pM.isHiding)
+        if (!deteccionCono.onFOV && !soundDetected && soundEmmiter == null && !raycast.playerInRange|| pM.isHiding)
         {
             Patrullar();
             Debug.Log("Patrullando");
@@ -72,7 +72,7 @@ public class EnemyMovement : MonoBehaviour
             Debug.Log("Persiguiendo");
 
         }
-        else if (deteccionCono.onFOV && !pM.isHiding || raycast.playerInRange && !pM.isHiding && !pM.isCrouching)
+        else if (deteccionCono.onFOV && !pM.isHiding && !CheatCode.Instance.isImmortal|| raycast.playerInRange && !pM.isHiding && !pM.isCrouching && !CheatCode.Instance.isImmortal)
         {
             Sonidos();
             ChasePlayer();
@@ -97,16 +97,16 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Deteccion"))
+        if (other.CompareTag("Deteccion") && !CheatCode.Instance.isImmortal)
         {
             soundEmmiter = other.transform;
             soundDetected = true;
         }
 
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !CheatCode.Instance.isImmortal)
         {
             AudioMngr.Instance.Stop("Correr");
-            AudioMngr.Instance.Stop("Caminar");
+            AudioMngr.Instance.Stop("Caminando");
             GameManager.Instance.capturedBy = (GameManager.EnemyType)type;
             Debug.Log("Atrapo Al Jugador");
             GameManager.Instance.ScreamerAnim();

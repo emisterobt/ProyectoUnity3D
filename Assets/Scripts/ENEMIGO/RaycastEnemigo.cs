@@ -52,10 +52,11 @@ public class RaycastEnemigo : MonoBehaviour
                     {
                         countdown -= Time.deltaTime;
                     }
-                    
+
                     else if (countdown <= 0)
                     {
                         changeLoc = true;
+                        AudioMngr.Instance.Play("GolpePuerta");
                         countdown = timeToReset;
                     }
 

@@ -55,7 +55,7 @@ public class RegresarItems : MonoBehaviour
             }
             else if (obj.itemType == Items.ItemType.Battery)
             {
-                //AudioMngr.Instance.Play("Bateria");
+                AudioMngr.Instance.Play("PilaCayendo");
             }
             Destroy(clone.GetComponent<PhyssicalInventoryu>());
             Destroy(clone.GetComponent<Rigidbody>());

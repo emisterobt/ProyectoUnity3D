@@ -12,6 +12,7 @@ public class RechargeBattery : MonoBehaviour
         {
             item.Use();
             Inventario2.Instance.RemoveItem(item);
+            AudioMngr.Instance.Play("Recarga");
             Destroy(other.gameObject);
         }
     }

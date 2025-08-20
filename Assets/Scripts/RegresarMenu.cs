@@ -15,7 +15,8 @@ public class RegresarMenu : MonoBehaviour
                 StartCoroutine(TimeToScream());
                 break;
             case GameManager.EnemyType.Xperimento:
-                animDuration = .6f;
+                //AudioMngr.Instance.Play("ScreamerXperimento");
+                animDuration = 1f;
                 break;
         }
         ReturnToMenu();
